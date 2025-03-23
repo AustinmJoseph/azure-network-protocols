@@ -3,7 +3,7 @@
 </p>
 
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
-In this lab I use Azure to create 2 separate virtual machines to test the Icmp(ping) between them to understand how networking works between 2 computers. <br />
+In this lab I use Azure to create 2 separate virtual machines to test various protocols between them to understand how networking works between 2 computers. <br />
 
 <h2>Environments and Technologies Used</h2>
 
