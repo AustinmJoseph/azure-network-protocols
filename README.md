@@ -41,12 +41,24 @@ Now that we have set up our VM's lets log into one with Remote Desktop. Go to th
 ![az15](https://github.com/user-attachments/assets/b2c31d49-22d6-4c87-9bbc-19ac8a09e536)
 ![a16](https://github.com/user-attachments/assets/3b5c108f-0ccb-4218-82f8-d935080f1985)
 
-Now that we have wireshark set up lets Try out a few protocols to understand how they work. THe first protocol we will use is ICMP this is also known as the ping protocol and doesnt have a port number, in the filter section at the top enter "icmp". To use ping open powershell and locate the Linux machines Private IP address. The ping should work since both virtual machines are in the same subnetwork. You can also ping other websites like Google.com.
+  Now that we have wireshark set up lets Try out a few protocols to understand how they work. THe first protocol we will use is ICMP this is also known as the ping protocol and doesnt have a port number, in the filter section at the top enter "icmp". To use ping open powershell and locate the Linux machines Private IP address. The ping should work since both virtual machines are in the same subnetwork. You can also ping other websites like Google.com.
+  
+  Lets try stopping a constant ping to the Linux machine, go into powershell and use the ping command but this time  add "-t". This command will give a constant ping untill told otherwise, we are going to set up a basic firewall. On your main device go into the Linux virtual machine settings find the network tab open network settings and create a port rule. In this port rule change the setting to ICMPv4 notice how the port ranges changes to a *. this happens because ICMP does not use a port. Change the setting from allow to deny and the priority to 290 so the VM knows to run it first. Check back into Powershell and notice how after a while the ping protocol starts to time out. To change the this back go back into your VM and delete the fire wall and notice how after a while it comes back, to stop the constant ping hit Ctrl+C.
 
 ![az18](https://github.com/user-attachments/assets/2ef620b8-7add-4222-a9f9-a837fbf48501)
 ![az19](https://github.com/user-attachments/assets/05379269-61e4-418f-9779-52263dac31ab)
 ![a20](https://github.com/user-attachments/assets/1afe8c5d-f125-4381-becb-52d94f0f7e6f)
 ![a21](https://github.com/user-attachments/assets/13af7f59-aae6-4e50-a0a6-8c7a8186b63f)
+![az22](https://github.com/user-attachments/assets/86414e7d-f156-4628-a8f0-5a5098b6b86d)
+![az23](https://github.com/user-attachments/assets/7a430916-cde4-42f5-9c0c-807742af5557)
+![az24](https://github.com/user-attachments/assets/719c95d4-1f52-44a8-89b7-0ce91aa75c70)
+![a25m](https://github.com/user-attachments/assets/0d992c6c-90c3-42ef-8d0f-3bce3f504733)
+![a25](https://github.com/user-attachments/assets/90590901-22e8-45a6-835a-71df746beaa2)
+![az23m2](https://github.com/user-attachments/assets/75218d96-51c4-404d-b142-406bfc97052c)
+![a26](https://github.com/user-attachments/assets/ffdbe26d-9f7f-4a6b-85d7-2e3b1ec8c6e7)
+![a27](https://github.com/user-attachments/assets/02d561aa-4a00-4384-8b3b-fcafcb53b331)
+
+Next we are going to use SSH. SSH is uses port 22 to connect securly to another devices. Make sure to change your filter from icmp to ssh.
 
 
 </p>
