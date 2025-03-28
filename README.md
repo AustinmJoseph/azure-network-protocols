@@ -33,7 +33,20 @@ First go to Microsoft Azure and create a Resousre group to hold your VM's(Virtua
 ![az9](https://github.com/user-attachments/assets/496f709b-85f3-4201-abef-cbf57771d1b6)
 ![subnet fix p2](https://github.com/user-attachments/assets/59cddb22-cca9-4d57-8fc7-4383e50ca377)
 
-Now that we have set up our VM's lets log into one with Remote Desktop. I chose to sign into my Windows 10 VM. After signig in install wire shark on the VM to capture the protocols in action.
+Now that we have set up our VM's lets log into one with Remote Desktop. Go to the Windows VM and copy and paste its IPv4 adress. THen sign in using the user and password we made earlier to sign into the VM. After signing in, install wire shark on the VM to capture the protocols in action.
+
+![a12](https://github.com/user-attachments/assets/4aa4299b-69c8-4f96-becb-e24e72af03ca)
+![az13a](https://github.com/user-attachments/assets/3ade5c5c-697e-46ed-b2b4-b19e830ee9d5)
+![azurep](https://github.com/user-attachments/assets/09679b6a-1ace-4a42-9230-806c9b566096)
+![az15](https://github.com/user-attachments/assets/b2c31d49-22d6-4c87-9bbc-19ac8a09e536)
+![a16](https://github.com/user-attachments/assets/3b5c108f-0ccb-4218-82f8-d935080f1985)
+
+Now that we have wireshark set up lets Try out a few protocols to understand how they work. THe first protocol we will use is ICMP this is also known as the ping protocol and doesnt have a port number, in the filter section at the top enter "icmp". To use ping open powershell and locate the Linux machines Private IP address. The ping should work since both virtual machines are in the same subnetwork. You can also ping other websites like Google.com.
+
+![az18](https://github.com/user-attachments/assets/2ef620b8-7add-4222-a9f9-a837fbf48501)
+![az19](https://github.com/user-attachments/assets/05379269-61e4-418f-9779-52263dac31ab)
+![a20](https://github.com/user-attachments/assets/1afe8c5d-f125-4381-becb-52d94f0f7e6f)
+![a21](https://github.com/user-attachments/assets/13af7f59-aae6-4e50-a0a6-8c7a8186b63f)
 
 
 </p>
