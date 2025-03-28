@@ -17,7 +17,7 @@ In this lab I use Azure to create 2 separate virtual machines to test various pr
 
 - Windows 10 (21H2)
 - Ubuntu Server 20.04
-<h2>Actions and Observations</h2>
+<h2>Virtual Machine Setup</h2>
 
 <p>
 First go to Microsoft Azure and create a Resousre group to hold your VM's(Virtual Machines). For this lab I chose to use Canada Central for the region and named it Azure-VM-Lab. Then create those virtual machines under the same resource group, one running Windows 10 while the other runs Linux(Ubuntu 22-24). Make sure to chose a good size so the VM's do not run slow, since this is a lab practice use the same user and password for both VM's. For the Windows VM check the licensing box and for the Linux VM change the dot on SSH key to Password. For fun we will create a new subnet for these vm's which I named Azure-Lab.
@@ -35,11 +35,14 @@ First go to Microsoft Azure and create a Resousre group to hold your VM's(Virtua
 
 Now that we have set up our VM's lets log into one with Remote Desktop. Go to the Windows VM and copy and paste its IPv4 adress. THen sign in using the user and password we made earlier to sign into the VM. After signing in, install wire shark on the VM to capture the protocols in action.
 
+
 ![a12](https://github.com/user-attachments/assets/4aa4299b-69c8-4f96-becb-e24e72af03ca)
 ![az13a](https://github.com/user-attachments/assets/3ade5c5c-697e-46ed-b2b4-b19e830ee9d5)
 ![azurep](https://github.com/user-attachments/assets/09679b6a-1ace-4a42-9230-806c9b566096)
 ![az15](https://github.com/user-attachments/assets/b2c31d49-22d6-4c87-9bbc-19ac8a09e536)
 ![a16](https://github.com/user-attachments/assets/3b5c108f-0ccb-4218-82f8-d935080f1985)
+
+<h1>ICMP</h1>
 
   Now that we have wireshark set up lets Try out a few protocols to understand how they work. THe first protocol we will use is ICMP this is also known as the ping protocol and doesnt have a port number, in the filter section at the top enter "icmp". To use ping open powershell and locate the Linux machines Private IP address. The ping should work since both virtual machines are in the same subnetwork. You can also ping other websites like Google.com.
   
@@ -58,24 +61,32 @@ Now that we have set up our VM's lets log into one with Remote Desktop. Go to th
 ![a26](https://github.com/user-attachments/assets/ffdbe26d-9f7f-4a6b-85d7-2e3b1ec8c6e7)
 ![a27](https://github.com/user-attachments/assets/02d561aa-4a00-4384-8b3b-fcafcb53b331)
 
-Next we are going to use SSH. SSH is uses port 22 to connect securly to another devices. Make sure to change your filter from icmp to ssh.
+<h1>SSH</h1>
 
+Next we are going to use SSH. SSH uses port 22 to connect securly to another devices while aslo staying encrypted. Make sure to change your filter from icmp to ssh. when you try to use ssh in powershell it will ask you for the password that we made earlier to sign into the VM. It wont show for security purposes but once you are logged in it should turn green. You can move files, manage servers, and run commands. a few commands I ran to test this out was host name,who am i, and uptime. if you look closely all the information that is givin is congruent to what we set up earlier. Notice the amount of traffic there is in wireshark ever key typed is encrypted and sent to the Linux machine, To log out enter exit.
 
-</p>
-<br />
+![a28](https://github.com/user-attachments/assets/0b78b5b6-4af4-465f-93f0-be1c619e605d)
+![az29](https://github.com/user-attachments/assets/5922afc8-ad9a-451e-86e4-4850382d33a7)
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+<h1>DNS</h1>
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Next we are going to look at DNS traffic. DNS uses port 53. In simple terms Dns translates human websites into ip addresses so the computer can read it and understand where to go. For this example change the filter in wireshark to dns, then go into powershell and us nslookup and a site of your choice I chose marvel.com. If you look you can see the vm translating with marvels public ip address to find the correct server.
+
+![a30](https://github.com/user-attachments/assets/cc0a88e8-dd25-429b-999e-93de0a6c8b6a)
+
+<h1>RDP/TCP Port 3389</h1>
+
+Next we are going to show the use of tcp port 3389 also known as RDP. Powershell isnt needed for this example because we are currently using RDP for the lab. If you look at wireshark there should be constant feedback.
+![a31](https://github.com/user-attachments/assets/0e2ca87e-604a-4619-a2a1-e5d5081e7072)
+
+<h1>HTTP</h1>
+
+For our final protocol we will use http also know as tcp port 80. I already had a browser open and this protocol also showed instant feedback. When in a browser it uses HTTP in the background for automatic updates and when you search thing in the browser aswell.
+![a32](https://github.com/user-attachments/assets/0122ce2c-7ec9-48bb-854d-d60433bb434e)
+
+<h1>Clean up</h1>
+
+Now that we are finished with the VM's we can shut them down. Head back to azure and go into your resource group. Go to delete and make sure everything in the resource group is deleted. Refresh and make sure everything was properly deleted.
+![atlastz](https://github.com/user-attachments/assets/11da332f-e0f7-44c1-b62f-482684acaf38)
+![azure](https://github.com/user-attachments/assets/c8e3d50c-7523-4aa5-abb2-775d1472f6f2)
+
