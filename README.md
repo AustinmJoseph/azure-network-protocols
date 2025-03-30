@@ -20,8 +20,13 @@ In this lab I use Azure to create 2 separate virtual machines to test various pr
 <h2>Virtual Machine Setup</h2>
 
 <p>
-First go to Microsoft Azure and create a Resousre group to hold your VM's(Virtual Machines). For this lab I chose to use Canada Central for the region and named it Azure-VM-Lab. Then create those virtual machines under the same resource group, one running Windows 10 while the other runs Linux(Ubuntu 22-24). Make sure to chose a good size so the VM's do not run slow, since this is a lab practice use the same user and password for both VM's. For the Windows VM check the licensing box and for the Linux VM change the dot on SSH key to Password. For fun we will create a new subnet for these vm's which I named Azure-Lab.
-  
+First, go to Microsoft Azure and create a Resource Group to hold your VMs (Virtual Machines). For this lab, I chose Canada Central as the region and named it Azure-VM-Lab.
+
+Next, create two virtual machines under the same Resource Group—one running Windows 10 and the other running Linux (Ubuntu 22-24). Make sure to choose a good size so the VMs do not run slowly. Since this is a lab practice, use the same username and password for both VMs.
+
+For the Windows VM, check the licensing box, and for the Linux VM, change the authentication method from SSH key to Password.
+
+For fun, we will create a new subnet for these VMs, which I named Azure-Lab.
   ![az1](https://github.com/user-attachments/assets/c337e60c-170a-45e8-989b-866e1cd3e266)
   ![az3](https://github.com/user-attachments/assets/ac4b553f-58ae-4e81-b628-5b5395ff0ae9)
   ![az4](https://github.com/user-attachments/assets/98ad793f-c983-41f0-b702-72c53f74aee0)
@@ -33,9 +38,11 @@ First go to Microsoft Azure and create a Resousre group to hold your VM's(Virtua
 ![az9](https://github.com/user-attachments/assets/496f709b-85f3-4201-abef-cbf57771d1b6)
 ![subnet fix p2](https://github.com/user-attachments/assets/59cddb22-cca9-4d57-8fc7-4383e50ca377)
 
-Now that we have set up our VM's lets log into one with Remote Desktop. Go to the Windows VM and copy and paste its IPv4 adress. THen sign in using the user and password we made earlier to sign into the VM. After signing in, install wire shark on the VM to capture the protocols in action.
+Now that we have set up our VMs, let’s log into one using Remote Desktop.
 
+Go to the Windows VM and copy its IPv4 address. Then, use the username and password we created earlier to sign into the VM.
 
+After signing in, install Wireshark on the VM to capture network protocols in action.
 ![a12](https://github.com/user-attachments/assets/4aa4299b-69c8-4f96-becb-e24e72af03ca)
 ![az13a](https://github.com/user-attachments/assets/3ade5c5c-697e-46ed-b2b4-b19e830ee9d5)
 ![azurep](https://github.com/user-attachments/assets/09679b6a-1ace-4a42-9230-806c9b566096)
