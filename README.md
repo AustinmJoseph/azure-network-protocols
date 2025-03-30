@@ -51,11 +51,28 @@ After signing in, install Wireshark on the VM to capture network protocols in ac
 
 <h1>ICMP</h1>
 
-  Now that we have wireshark set up lets Try out a few protocols to understand how they work. THe first protocol we will use is ICMP this is also known as the ping protocol and doesnt have a port number, in the filter section at the top enter "icmp". To use ping open powershell and locate the Linux machines Private IP address. The ping should work since both virtual machines are in the same subnetwork. You can also ping other websites like Google.com.
-  
-  Lets try stopping a constant ping to the Linux machine, go into powershell and use the ping command but this time  add "-t". This command will give a constant ping untill told otherwise, we are going to set up a basic firewall. On your main device go into the Linux virtual machine settings find the network tab open network settings and create a port rule. In this port rule change the setting to ICMPv4 notice how the port ranges changes to a *. this happens because ICMP does not use a port. Change the setting from allow to deny and the priority to 290 so the VM knows to run it first. Check back into Powershell and notice how after a while the ping protocol starts to time out. To change the this back go back into your VM and delete the fire wall and notice how after a while it comes back, to stop the constant ping hit Ctrl+C.
+Now that we have Wireshark set up, let’s try out a few protocols to understand how they work.
 
-![az18](https://github.com/user-attachments/assets/2ef620b8-7add-4222-a9f9-a837fbf48501)
+The first protocol we will use is ICMP, also known as the ping protocol. ICMP does not have a port number. In Wireshark, enter “icmp” in the filter section at the top.
+
+To use ping, open PowerShell and locate the Linux machine’s private IP address. The ping should work since both virtual machines are in the same subnet. You can also ping other websites like Google.com.
+
+Stopping a Constant Ping
+
+Now, let’s try stopping a constant ping to the Linux machine. Open PowerShell and use the ping command, but this time, add ”-t” at the end. This command will send a continuous ping until manually stopped.
+
+Next, we are going to set up a basic firewall. On your main device, go to the Linux virtual machine settings, find the network tab, open network settings, and create a port rule.
+
+In this port rule:
+	•	Change the setting to ICMPv4 (notice how the port range changes to ”*”—this happens because ICMP does not use a port).
+	•	Change the rule action from Allow to Deny.
+	•	Set the priority to 290 so the VM knows to apply this rule first.
+
+Now, check PowerShell again. After a short time, the ping requests will begin to time out, indicating that the firewall rule is working.
+
+To revert this change, go back into your VM, delete the firewall rule, and notice how the ping starts working again after a while. To stop the constant ping, press Ctrl + C.
+
+  ![az18](https://github.com/user-attachments/assets/2ef620b8-7add-4222-a9f9-a837fbf48501)
 ![az19](https://github.com/user-attachments/assets/05379269-61e4-418f-9779-52263dac31ab)
 ![a20](https://github.com/user-attachments/assets/1afe8c5d-f125-4381-becb-52d94f0f7e6f)
 ![a21](https://github.com/user-attachments/assets/13af7f59-aae6-4e50-a0a6-8c7a8186b63f)
@@ -70,30 +87,53 @@ After signing in, install Wireshark on the VM to capture network protocols in ac
 
 <h1>SSH</h1>
 
-Next we are going to use SSH. SSH uses port 22 to connect securly to another devices while aslo staying encrypted. Make sure to change your filter from icmp to ssh. when you try to use ssh in powershell it will ask you for the password that we made earlier to sign into the VM. It wont show for security purposes but once you are logged in it should turn green. You can move files, manage servers, and run commands. a few commands I ran to test this out was host name,who am i, and uptime. if you look closely all the information that is givin is congruent to what we set up earlier. Notice the amount of traffic there is in wireshark ever key typed is encrypted and sent to the Linux machine, To log out enter exit.
+Next, we are going to use SSH. SSH uses port 22 to securely connect to another device while keeping the connection encrypted.
+
+First, change your Wireshark filter from ICMP to SSH.
+
+When you try to use SSH in PowerShell, it will prompt you for the password we created earlier to sign into the Linux VM. The password won’t be visible for security purposes, but once you are logged in, the terminal should turn green.
+
+With SSH, you can move files, manage servers, and run commands. A few commands I ran to test this out were:
+	•	hostname – Displays the name of the machine.
+	•	whoami – Shows the currently logged-in user.
+	•	uptime – Displays how long the system has been running.
+
+If you look closely, all the information displayed matches what we set up earlier.
+
+Also, take note of the amount of traffic in Wireshark—every keystroke is encrypted and sent to the Linux machine.
+
+To log out, enter “exit”.
 
 ![a28](https://github.com/user-attachments/assets/0b78b5b6-4af4-465f-93f0-be1c619e605d)
 ![az29](https://github.com/user-attachments/assets/5922afc8-ad9a-451e-86e4-4850382d33a7)
 
 <h1>DNS</h1>
 
-Next we are going to look at DNS traffic. DNS uses port 53. In simple terms Dns translates human websites into ip addresses so the computer can read it and understand where to go. For this example change the filter in wireshark to dns, then go into powershell and us nslookup and a site of your choice I chose marvel.com. If you look you can see the vm translating with marvels public ip address to find the correct server.
+Next, we are going to examine DNS traffic. DNS uses port 53 and, in simple terms, translates human-readable website names into IP addresses so that computers can understand where to go.
+
+For this example, change the Wireshark filter to DNS, then open PowerShell and use the nslookup command followed by a website of your choice. I chose marvel.com.
+
+If you look at the Wireshark capture, you can see the VM querying Marvel’s public IP address to find the correct server.
 
 ![a30](https://github.com/user-attachments/assets/cc0a88e8-dd25-429b-999e-93de0a6c8b6a)
 
 <h1>RDP/TCP Port 3389</h1>
 
-Next we are going to show the use of tcp port 3389 also known as RDP. Powershell isnt needed for this example because we are currently using RDP for the lab. If you look at wireshark there should be constant feedback.
+Next, we are going to look at the use of TCP port 3389, also known as RDP (Remote Desktop Protocol). PowerShell isn’t needed for this example because we are currently using RDP for the lab.
+
+If you look at Wireshark, you should see constant feedback as RDP traffic is being exchanged between the client and the server.
+
 ![a31](https://github.com/user-attachments/assets/0e2ca87e-604a-4619-a2a1-e5d5081e7072)
 
 <h1>HTTP</h1>
+For our final protocol, we will use HTTP, which runs over TCP port 80. HTTP is the protocol used by web browsers to communicate with web servers and load websites. When you access a webpage, your browser sends HTTP requests to the server to retrieve content such as text, images, and other resources. This protocol also shows instant feedback in Wireshark.
 
-For our final protocol we will use http also know as tcp port 80. I already had a browser open and this protocol also showed instant feedback. When in a browser it uses HTTP in the background for automatic updates and when you search thing in the browser aswell.
+In addition to loading pages, HTTP is used for background tasks like submitting search queries and fetching resources such as scripts and stylesheets. It also plays a role in automatic updates, with the browser continuously using HTTP to request new content, like when you search in the browser. While HTTP is commonly used, HTTPS (port 443) is often used for secure communication.
 ![a32](https://github.com/user-attachments/assets/0122ce2c-7ec9-48bb-854d-d60433bb434e)
 
 <h1>Clean up</h1>
+Now that we are finished with the VMs, we can shut them down. Head back to Azure and go into your Resource Group. Click on Delete and make sure everything in the resource group is deleted. Refresh the page to ensure everything was properly deleted.
 
-Now that we are finished with the VM's we can shut them down. Head back to azure and go into your resource group. Go to delete and make sure everything in the resource group is deleted. Refresh and make sure everything was properly deleted.
 ![atlastz](https://github.com/user-attachments/assets/11da332f-e0f7-44c1-b62f-482684acaf38)
 ![azure](https://github.com/user-attachments/assets/c8e3d50c-7523-4aa5-abb2-775d1472f6f2)
 
