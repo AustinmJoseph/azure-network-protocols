@@ -58,14 +58,26 @@ For fun, we will create a new subnet for these VMs, which I named Azure-Lab.
 
 Now that we have set up our VMs, let’s log into one using Remote Desktop.
 
-Go to the Windows VM and copy its IPv4 address. Then, use the username and password we created earlier to sign into the VM.
+---
+
+![a12](https://github.com/user-attachments/assets/4aa4299b-69c8-4f96-becb-e24e72af03ca)
+
+---
+
+Go to the Windows VM and copy its IPv4 address. 
+
+Then, use the username and password we created earlier to sign into the VM.
+
+---
+
+![az13a](https://github.com/user-attachments/assets/3ade5c5c-697e-46ed-b2b4-b19e830ee9d5)
+
+---
 
 After signing in, install Wireshark on the VM to capture network protocols in action.
 
 ---
 
-![a12](https://github.com/user-attachments/assets/4aa4299b-69c8-4f96-becb-e24e72af03ca)
-![az13a](https://github.com/user-attachments/assets/3ade5c5c-697e-46ed-b2b4-b19e830ee9d5)
 ![azurep](https://github.com/user-attachments/assets/09679b6a-1ace-4a42-9230-806c9b566096)
 ![az15](https://github.com/user-attachments/assets/b2c31d49-22d6-4c87-9bbc-19ac8a09e536)
 ![a16](https://github.com/user-attachments/assets/3b5c108f-0ccb-4218-82f8-d935080f1985)
