@@ -101,36 +101,74 @@ In Wireshark, enter “icmp” in the filter section at the top.
 
 ---
 
+To use ping, open PowerShell and locate the Linux machine’s private IP address. 
 
-To use ping, open PowerShell and locate the Linux machine’s private IP address. The ping should work since both virtual machines are in the same subnet. You can also ping other websites like Google.com.
+The ping should work since both virtual machines are in the same subnet. 
 
-Stopping a Constant Ping
-
-Now, let’s try stopping a constant ping to the Linux machine. Open PowerShell and use the ping command, but this time, add ”-t” at the end. This command will send a continuous ping until manually stopped.
-
-Next, we are going to set up a basic firewall. On your main device, go to the Linux virtual machine settings, find the network tab, open network settings, and create a port rule.
-
-In this port rule:
-	•	Change the setting to ICMPv4 (notice how the port range changes to ”*”—this happens because ICMP does not use a port).
-	•	Change the rule action from Allow to Deny.
-	•	Set the priority to 290 so the VM knows to apply this rule first.
-
-Now, check PowerShell again. After a short time, the ping requests will begin to time out, indicating that the firewall rule is working.
-
-To revert this change, go back into your VM, delete the firewall rule, and notice how the ping starts working again after a while. To stop the constant ping, press Ctrl + C.
+You can also ping other websites like Google.com.
 
 ---
 
 ![az19](https://github.com/user-attachments/assets/05379269-61e4-418f-9779-52263dac31ab)
 ![a20](https://github.com/user-attachments/assets/1afe8c5d-f125-4381-becb-52d94f0f7e6f)
 ![a21](https://github.com/user-attachments/assets/13af7f59-aae6-4e50-a0a6-8c7a8186b63f)
+
+---
+
+Stopping a Constant Ping
+
+Now, let’s try stopping a constant ping to the Linux machine. 
+
+Open PowerShell and use the ping command, but this time, add ”-t” at the end. 
+
+This command will send a continuous ping until manually stopped.
+
+---
+
 ![az22](https://github.com/user-attachments/assets/86414e7d-f156-4628-a8f0-5a5098b6b86d)
+
+---
+
+Next, we are going to set up a basic firewall. 
+
+On your main device, go to the Linux virtual machine settings, find the network tab, open network settings, and create a port rule.
+
+---
+
 ![az23](https://github.com/user-attachments/assets/7a430916-cde4-42f5-9c0c-807742af5557)
+
+---
+
+ In this port rule:
+  
+•	Change the setting to ICMPv4 (notice how the port range changes to ”*”—this happens because ICMP does not use a port).
+•	Change the rule action from Allow to Deny.
+•	Set the priority to 290 so the VM knows to apply this rule first.
+
+ 
 ![az24](https://github.com/user-attachments/assets/719c95d4-1f52-44a8-89b7-0ce91aa75c70)
 ![a25m](https://github.com/user-attachments/assets/0d992c6c-90c3-42ef-8d0f-3bce3f504733)
+
+---
+
+Now, check PowerShell again. After a short time, the ping requests will begin to time out, indicating that the firewall rule is working.
+
+To revert this change, go back into your VM, delete the firewall rule, and notice how the ping starts working again after a while. 
+
+---
+
+
 ![a25](https://github.com/user-attachments/assets/90590901-22e8-45a6-835a-71df746beaa2)
 ![az23m2](https://github.com/user-attachments/assets/75218d96-51c4-404d-b142-406bfc97052c)
 ![a26](https://github.com/user-attachments/assets/ffdbe26d-9f7f-4a6b-85d7-2e3b1ec8c6e7)
+
+---
+
+To stop the constant ping, press Ctrl + C.
+
+
+---
+
 ![a27](https://github.com/user-attachments/assets/02d561aa-4a00-4384-8b3b-fcafcb53b331)
 
 ---
