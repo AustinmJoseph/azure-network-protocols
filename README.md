@@ -179,9 +179,16 @@ Next, we are going to use SSH. SSH uses port 22 to securely connect to another d
 
 First, change your Wireshark filter from ICMP to SSH.
 
+---
+
+![a28](https://github.com/user-attachments/assets/0b78b5b6-4af4-465f-93f0-be1c619e605d)
+
+---
+
 When you try to use SSH in PowerShell, it will prompt you for the password we created earlier to sign into the Linux VM. The password won’t be visible for security purposes, but once you are logged in, the terminal should turn green.
 
 With SSH, you can move files, manage servers, and run commands. A few commands I ran to test this out were:
+
 	•	hostname – Displays the name of the machine.
 	•	whoami – Shows the currently logged-in user.
 	•	uptime – Displays how long the system has been running.
@@ -194,7 +201,6 @@ To log out, enter “exit”.
 
 ---
 
-![a28](https://github.com/user-attachments/assets/0b78b5b6-4af4-465f-93f0-be1c619e605d)
 ![az29](https://github.com/user-attachments/assets/5922afc8-ad9a-451e-86e4-4850382d33a7)
 
 ---
