@@ -88,7 +88,19 @@ After signing in, install Wireshark on the VM to capture network protocols in ac
 
 Now that we have Wireshark set up, let’s try out a few protocols to understand how they work.
 
-The first protocol we will use is ICMP, also known as the ping protocol. ICMP does not have a port number. In Wireshark, enter “icmp” in the filter section at the top.
+
+The first protocol we will use is ICMP, also known as the ping protocol. 
+
+ICMP does not have a port number. 
+
+In Wireshark, enter “icmp” in the filter section at the top.
+
+---
+
+  ![az18](https://github.com/user-attachments/assets/2ef620b8-7add-4222-a9f9-a837fbf48501)
+
+---
+
 
 To use ping, open PowerShell and locate the Linux machine’s private IP address. The ping should work since both virtual machines are in the same subnet. You can also ping other websites like Google.com.
 
@@ -109,7 +121,6 @@ To revert this change, go back into your VM, delete the firewall rule, and notic
 
 ---
 
-  ![az18](https://github.com/user-attachments/assets/2ef620b8-7add-4222-a9f9-a837fbf48501)
 ![az19](https://github.com/user-attachments/assets/05379269-61e4-418f-9779-52263dac31ab)
 ![a20](https://github.com/user-attachments/assets/1afe8c5d-f125-4381-becb-52d94f0f7e6f)
 ![a21](https://github.com/user-attachments/assets/13af7f59-aae6-4e50-a0a6-8c7a8186b63f)
